@@ -1,6 +1,6 @@
 {
   "name": "Site-Boilerplate",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "devDependencies": {
     "assemble": "~0.4.0",
     "grunt": "~0.4.1",
