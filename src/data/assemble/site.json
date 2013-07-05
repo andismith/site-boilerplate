@@ -1,0 +1,12 @@
+{
+    "title": "Site Boilerplate",
+    "repo": "andismith/site-boilerplate",
+    "author": {
+        "name": "Andi Smith",
+        "twitter": "@andismith"
+    },
+    "meta": {
+        "description": "A complete site boilerplate for @andismith's personal projects",
+        "keywords": "Site, Boilerplate, Andi, Smith"
+    }
+}

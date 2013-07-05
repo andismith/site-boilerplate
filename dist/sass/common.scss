@@ -1,0 +1,17 @@
+//@sourceMappingURL: common.css.map
+
+@import "libs/_normalize-1.1.2";
+@import "_vars";
+@import "_helpers";
+
+html,
+body {
+    background: $background-color;
+}
+
+body {
+    transform: rotate(0deg);
+    transition: height 300ms;
+    margin: 0;
+    padding: 0;
+}
