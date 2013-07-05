@@ -1,0 +1,42 @@
+@import "vars";
+
+// GRID
+// calculates our responsive grid column sizes, reduces semantic clutter
+$cols: 12;
+$gutter: 2%;
+ 
+$one_col: (100% - ($gutter * ($cols - 1))) / $cols;
+
+@mixin container() {
+    margin: 0 auto;
+    max-width: $max-page-width;
+}
+
+@mixin row() {
+    overflow: hidden;
+    width: auto;
+}
+
+@mixin cols($num) {
+    float: left;
+    margin-right: $gutter;
+    width: ($one_col * $num) + ($gutter * ($num - 1));
+
+    &:last-child {
+        float: right;
+        margin-right: 0;
+    }
+}
+ 
+@mixin sub-cols($num_child, $num_parent) {
+    $parent_size: ($one_col * $num_parent) + ($gutter * ($num_parent - 1));
+    $child_size: ($one_col * $num_child) + ($gutter * ($num_child - 1));
+    float: left;
+    margin-right: ($gutter / $parent_size) * 100%;
+    width: ($child_size / $parent_size) * 100%;
+
+    &:last-child {
+        float: right;
+        margin-right: 0;
+    }
+}
