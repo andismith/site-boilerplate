@@ -2,7 +2,7 @@
 > A complete site boilerplate for @andismith&#x27;s personal projects
 
 [![Build Status](https://travis-ci.org/andismith/site-boilerplate.png?branch=master)](https://travis-ci.org/)
-Version 0.2.3
+Version 0.0.2
 
 ## Getting Started
 This boilerplate requires Grunt `~0.4.0`
