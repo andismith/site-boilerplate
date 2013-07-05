@@ -1,6 +1,6 @@
 {
   "name": "Site-Boilerplate",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "devDependencies": {
     "assemble": "~0.4.0",
     "grunt": "~0.4.1",
@@ -15,7 +15,6 @@
     "grunt-contrib-uglify": "~0.2.2",
     "grunt-contrib-watch": "~0.4.4",
     "grunt-contrib-yuidoc": "~0.4.0",
-    "grunt-gh-pages": "~0.6.0",
     "grunt-jsonlint": "~1.0.0",
     "grunt-verifylowercase": "~0.2.0",
     "grunt-version": "~0.2.2",

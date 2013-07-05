@@ -129,16 +129,6 @@ module.exports = function (grunt) {
       }
     },
 
-    'gh-pages': {
-      deploy: {
-        options: {
-          base: './dist',
-          clone: './tmp/gh-pages'
-        },
-        src: ['**/*']
-      }
-    },
-
     // minify images
     imagemin: {
       build: {
@@ -325,6 +315,5 @@ module.exports = function (grunt) {
   grunt.registerTask('default', ['build:dev', 'connect', 'watch']);
   grunt.registerTask('dev', ['build:dev']);
   grunt.registerTask('prod', ['build:prod']);
-  grunt.registerTask('deploy', ['gh-pages']);
 
 };

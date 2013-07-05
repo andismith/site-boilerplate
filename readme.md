@@ -2,7 +2,7 @@
 > A complete site boilerplate for @andismith&#x27;s personal projects
 
 [![Build Status](https://travis-ci.org/andismith/site-boilerplate.png?branch=master)](https://travis-ci.org/)
-Version 0.0.2
+Version 0.0.3
 
 ## Getting Started
 This boilerplate requires Grunt `~0.4.0`
@@ -37,6 +37,10 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
 * Add Common Styles
 * Require JS
 * Jasmine Testing
+
+## Pushing to Github Pages
+1. Ensure git subtree is installed. `$git clone https://github.com/apenwarr/git-subtree` and `sh install.sh`
+1. From the root run: `git subtree push --prefix dist origin gh-pages --force`
 
 ## Issues and Feedback
 Found an issue, have an idea? [github.com/andismith/site-boilerplate/issues](https://github.com/andismith/site-boilerplate/issues)
