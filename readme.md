@@ -18,7 +18,7 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
 1. `cd site-boilerplate`
 1. Install project dependencies with `npm install`
 1. Make sure you have the Grunt command-line interface with `npm install -g grunt-cli`
-1. Install SASS 3.3.0 with `gem install sass --pre` for Source Maps
+1. Install SASS 3.3.0.alpha.198 with `gem install sass --pre` for Source Maps
 1. Run Grunt with `grunt` for development build, watch and server
 1. Run Grunt with `grunt` [`dev` | `prod`] for development/production build
 
@@ -39,7 +39,7 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
 ## Setting Up The Ultimate Reloading Workspace
 You can edit files directly in the browser in Chrome Canary. Canary shows the dist folder, but you can edit the src folder. Grunt will auto rebuild and LiveReload will load your changes.
 * Download [Live Reload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en)
-* Go to[Chrome Flags](chrome://flags)
+* Go to [Chrome Flags](chrome://flags)
 * Enable Developer Tool Experiments, Restart
 * Go to Settings, and enable Sass stylesheet debugging
 * Restart developer tools
@@ -50,7 +50,7 @@ You can edit files directly in the browser in Chrome Canary. Canary shows the di
 * Start `grunt`
 * Turn on the Live Reload extension
 * Refresh the page and open developer tools
-* Edit CSS/JS to your heart content
+* Edit CSS/JS to your hearts content
 
 ## Roadmap
 * Add Common Styles
@@ -63,5 +63,13 @@ You can edit files directly in the browser in Chrome Canary. Canary shows the di
 1. Ensure git subtree is installed. `$git clone https://github.com/apenwarr/git-subtree` and `sh install.sh`
 1. From the root run: `git subtree push --prefix dist origin gh-pages --force`
 
+## Version History
+* *0.0.5*
+  * Sourcemap support for SASS. Ensure you have run `gem install sass --pre` and `npm install` after this update to get latest changes
+  * Removed over eager version number updater. Run with `version:dev` or `version:prod` to update version instead
+  * Instructions for ultimate workflow in readme.md
+  * Editing the gruntfile rebuilds the project
+* *0.0.4*
+  * Initial release to Github
 ## Issues and Feedback
 Found an issue, have an idea? [github.com/andismith/site-boilerplate/issues](https://github.com/andismith/site-boilerplate/issues)
