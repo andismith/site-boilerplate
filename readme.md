@@ -36,7 +36,13 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
 * Gruntfile hinting
 * Production build tasks with `grunt prod`
 
-## Setting Up The Ultimate Reloading Workspace
+## Additional Information
+### Pushing to Github Pages
+1. Ensure git subtree is installed. `$git clone https://github.com/apenwarr/git-subtree` and `sh install.sh`
+1. From the root run: `git subtree push --prefix dist origin gh-pages --force`
+
+
+### Setting Up The Ultimate Reloading Workspace
 You can edit files directly in the browser in Chrome Canary. Canary shows the dist folder, but you can edit the src folder. Grunt will auto rebuild and LiveReload will load your changes.
 * Download [Live Reload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en)
 * Go to [Chrome Flags](chrome://flags)
@@ -52,18 +58,7 @@ You can edit files directly in the browser in Chrome Canary. Canary shows the di
 * Refresh the page and open developer tools
 * Edit CSS/JS to your hearts content
 
-## Roadmap
-* Add Common Styles
-* Require JS
-* Jasmine Testing
-* Sitemap.xml using Assemble
-
-## Additional Information
-### Pushing to Github Pages
-1. Ensure git subtree is installed. `$git clone https://github.com/apenwarr/git-subtree` and `sh install.sh`
-1. From the root run: `git subtree push --prefix dist origin gh-pages --force`
-
-## Version History
+### Version History
 * *0.0.5*
   * Sourcemap support for SASS. Ensure you have run `gem install sass --pre` and `npm install` after this update to get latest changes
   * Removed over eager version number updater. Run with `version:dev` or `version:prod` to update version instead
@@ -71,5 +66,12 @@ You can edit files directly in the browser in Chrome Canary. Canary shows the di
   * Editing the gruntfile rebuilds the project
 * *0.0.4*
   * Initial release to Github
+
+### Roadmap
+* Add Common Styles
+* Require JS
+* Jasmine Testing
+* Sitemap.xml using Assemble
+
 ## Issues and Feedback
 Found an issue, have an idea? [github.com/andismith/site-boilerplate/issues](https://github.com/andismith/site-boilerplate/issues)
