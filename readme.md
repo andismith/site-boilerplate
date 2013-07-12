@@ -2,7 +2,10 @@
 > A complete site boilerplate for @andismith&#x27;s personal projects
 
 [![Build Status](https://travis-ci.org/andismith/site-boilerplate.png?branch=master)](https://travis-ci.org/)
-Version 0.0.4
+Version 0.0.5
+
+## Project Goal
+To produce feature-full static HTML sites in next to no time.
 
 ## Getting Started
 This boilerplate requires Grunt `~0.4.0`
@@ -23,15 +26,31 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
 * Seperate source `src` and distribution `dist` folders
 * Watches files and runs a partial compliation on the files that have changed
 * Runs on `localhost:3000`
-* Assemble Templating - With Handlebars
-* Styles - Normalize resets, auto-prefixing and SASS compliation
+* [Assemble Templating](https://github.com/assemble/assemble) with [Handlebars](http://handlebarsjs.com)
+* Styles - [Normalize CSS resets](http://necolas.github.io/normalize.css), auto-prefixing, SASS compliation, Source Maps
 * JavaScript - JSHint, Source Maps and Uglification
 * JSON - Site Configuration and Linting
 * Images - Image Minification
-* Latest jQuery, Modernizr, RequireJS and lodash
+* Latest [jQuery](http://jquery.com), [Modernizr](http://modernizr.com), RequireJS and [Lo-Dash](http://lodash.com)
 * Version number incremental updates
 * Gruntfile hinting
 * Production build tasks with `grunt prod`
+
+## Setting Up The Ultimate Reloading Workspace
+You can edit files directly in the browser in Chrome Canary. Canary shows the dist folder, but you can edit the src folder. Grunt will auto rebuild and LiveReload will load your changes.
+* Download [Live Reload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en)
+* Go to[Chrome Flags](chrome://flags)
+* Enable Developer Tool Experiments, Restart
+* Go to Settings, and enable Sass stylesheet debugging
+* Restart developer tools
+* Go to General and Enable Source Maps
+* Go to Workspace and add the `src` folder
+* Go to Sources, right click a SASS or JS file and Enable Network Mapping
+* Close the developer tools
+* Start `grunt`
+* Turn on the Live Reload extension
+* Refresh the page and open developer tools
+* Edit CSS/JS to your heart content
 
 ## Roadmap
 * Add Common Styles
