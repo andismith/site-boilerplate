@@ -1,10 +1,15 @@
 /* jshint indent: 2 */
 module.exports = function (grunt) {
 
-  var SERVER_PORT = 3000;
+  "use strict";
 
   /* CONFIGURATION =-=-=-=-=-=-=-=-=-=-=- */
-  
+  var THEME = "andismith",
+      SRC = './src/', // source folder
+      DIST = './dist/', // output folder
+      SERVER_PORT = 3000;
+
+  /* GRUNT INIT =-==-=-=-=-=-=-=-=-=-=-=- */
   grunt.initConfig({
     // package file
     pkg: grunt.file.readJSON('package.json'),
@@ -12,29 +17,41 @@ module.exports = function (grunt) {
     // generate pages from handlebar templates
     assemble: {
       options: {
-        data: ['src/data/assemble/*.{json,yml}'],
+        data: [SRC + 'data/assemble/*.{json,yml}'],
         flatten: true,
+        helpers: SRC + 'templates/helpers/**/*.js',
         layout: 'site.hbs',
-        layoutdir: 'src/templates/layouts',
-        partials: ['src/templates/partials/*.hbs']
+        layoutdir: SRC + 'templates/layouts',
+        partials: SRC + 'templates/partials/*.hbs',
+        theme: THEME
       },
       dev: {
         options: {
           dev: true,
           prod: false
         },
-        files: {
-          'dist/': ['src/templates/pages/*.hbs']
-        }
+        files: [
+          {
+            expand: true,
+            cwd: SRC + 'templates/pages/',
+            src: '**/*.hbs',
+            dest: DIST
+          },
+          {
+            expand: true,
+            cwd: SRC,
+            src: 'posts/**/*.hbs',
+            dest: DIST
+          }
+        ]
       },
       prod: {
         options: {
           dev: false,
           prod: true
         },
-        files: {
-          'dist/': ['src/templates/pages/*.hbs']
-        }
+        src: SRC + 'templates/pages/*.hbs',
+        dest: DIST
       },
       readme: {
         options: {
@@ -42,7 +59,7 @@ module.exports = function (grunt) {
           ext: '',
           layout: ''
         },
-        src: 'src/templates/misc/readme.md.hbs',
+        src: SRC + 'templates/misc/readme.md.hbs',
         dest: './'
       }
     },
@@ -56,8 +73,8 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           src: ['*/**.css'],
-          cwd: 'src/',
-          dest: 'src/',
+          cwd: SRC,
+          dest: SRC, // output to src so we can continue to run tasks
           ext: '.css'
         }]
       }
@@ -65,7 +82,7 @@ module.exports = function (grunt) {
 
     // clear a directory before build
     clean: {
-      all: ['src/css', 'dist']
+      all: [SRC + '/css', DIST]
     },
 
     // create a local server
@@ -73,7 +90,7 @@ module.exports = function (grunt) {
       dev: {
         options: {
           port: SERVER_PORT,
-          base: 'dist/'
+          base: DIST
         }
       }
     },
@@ -83,11 +100,20 @@ module.exports = function (grunt) {
       options: {
         processContentExclude: ['.DS_Store', '.gitignore', '.sass-cache', 'node_modules', 'src/tests/**']
       },
+      fonts: {
+        files: [
+          {
+            cwd: SRC + 'fonts/themes/' + THEME + '/**',
+            dest: DIST + 'fonts/',
+            src: ['**.{ttf}']
+          }
+        ]
+      },
       images: {
         files: [
           {
-            cwd: 'src/',
-            dest: 'dist/',
+            cwd: SRC,
+            dest: DIST,
             src: ['img/**/*.gif'],
             expand: true,
             filter: 'isFile'
@@ -97,8 +123,8 @@ module.exports = function (grunt) {
       json: {
         files: [
           {
-            cwd: 'src/',
-            dest: 'dist/',
+            cwd: SRC,
+            dest: DIST,
             src: ['**/*.json', '!**/assemble/*.json'],
             expand: true,
             filter: 'isFile'
@@ -108,8 +134,8 @@ module.exports = function (grunt) {
       scripts: {
         files: [
           {
-            cwd: 'src/',
-            dest: 'dist/',
+            cwd: SRC,
+            dest: DIST,
             src: ['js/**/*.js'],
             expand: true,
             filter: 'isFile'
@@ -119,8 +145,8 @@ module.exports = function (grunt) {
       styles: {
         files: [
           {
-            cwd: 'src/',
-            dest: 'dist/',
+            cwd: SRC,
+            dest: DIST,
             src: ['css/**', 'sass/**'],
             expand: true,
             filter: 'isFile'
@@ -137,9 +163,9 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: 'src/',
+          cwd: SRC,
           src: ['img/**/*.{gif,jpg,png}'],
-          dest: 'dist/'
+          dest: DIST
         }]
       }
     },
@@ -165,7 +191,7 @@ module.exports = function (grunt) {
         force: true // allow build to continue with errors
       },
       dev: {
-        src: ['src/js/**/*.js', '!src/js/libs/**/*.js']
+        src: [SRC + 'js/**/*.js', '!' + SRC + '/js/libs/**/*.js']
       },
       gruntfile: {
         src: ['Gruntfile.js']
@@ -174,13 +200,14 @@ module.exports = function (grunt) {
 
     jsonlint: {
       dev: {
-        src: [ 'src/**/*.json' ]
+        src: [ SRC + '**/*.json' ]
       }
     },
 
     sass: {
       options: {
-        //sourcemap: true // this breaks!
+        sourcemap: true,
+        trace: true
       },
       dev: {
         options: {
@@ -188,9 +215,9 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          src: ['*.scss', '!_*.scss'],
-          cwd: 'src/sass',
-          dest: 'src/css',
+          src: ['**/*.scss', '!**/_*.scss', '!**/themes/*.scss', '**/themes/' + THEME + '.scss'],
+          cwd: SRC + 'sass',
+          dest: SRC + 'css',
           ext: '.css'
         }]
       },
@@ -201,8 +228,8 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           src: ['**/*.scss', '!**/_*.scss'],
-          cwd: 'src/sass',
-          dest: 'src/css',
+          cwd: SRC + 'sass',
+          dest: SRC + 'css',
           ext: '.min.css'
         }]
       }
@@ -212,14 +239,14 @@ module.exports = function (grunt) {
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
-        sourceMap: 'dist/js/script.min.js.map'
+        sourceMap: DIST + '/js/script.min.js.map'
       },
       prod: {
         files: [{
           expand: true,
           src: ['js/**/*.js', '!js/libs/**/*.js'],
-          cwd: 'src/',
-          dest: 'dist/',
+          cwd: SRC,
+          dest: DIST,
           ext: '.min.js'
         }]
       }
@@ -228,7 +255,7 @@ module.exports = function (grunt) {
     // verify lowercase filenames
     verifylowercase: {
       all: {
-        src: ["src/**"]
+        src: [SRC + '**/*']
       }
     },
 
@@ -263,7 +290,11 @@ module.exports = function (grunt) {
       },
       gruntfile: {
         files: 'Gruntfile.js',
-        tasks: ['jshint:gruntfile']
+        tasks: ['jshint:gruntfile', 'build:dev']
+      },
+      fonts: {
+        files: ['src/fonts/**'],
+        tasks: ['copy:fonts']
       },
       images: {
         files: ['src/img/**'],
@@ -308,11 +339,11 @@ module.exports = function (grunt) {
   grunt.registerTask('styles:prod', ['sass:prod', 'autoprefixer', 'copy:styles']);
 
   // tasks to run a complete build
-  grunt.registerTask('build:dev', ['version:dev', 'verifylowercase', 'clean', 'assemble:readme', 'assemble:dev', 'images', 'json', 'scripts:dev', 'styles:dev']);
-  grunt.registerTask('build:prod', ['version:prod', 'verifylowercase', 'clean', 'assemble:readme', 'assemble:prod', 'images', 'json', 'scripts:prod', 'styles:prod']);
+  grunt.registerTask('build:dev', ['verifylowercase', 'clean', 'assemble:readme', 'assemble:dev', 'images', 'json', 'scripts:dev', 'styles:dev']);
+  grunt.registerTask('build:prod', ['verifylowercase', 'clean', 'assemble:readme', 'assemble:prod', 'images', 'json', 'scripts:prod', 'styles:prod']);
 
   // main tasks
-  grunt.registerTask('default', ['build:dev', 'connect', 'watch']);
+  grunt.registerTask('default', ['build:dev', 'connect:dev', 'watch']);
   grunt.registerTask('dev', ['build:dev']);
   grunt.registerTask('prod', ['build:prod']);
 

@@ -1,6 +1,6 @@
 {
   "name": "Site-Boilerplate",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "devDependencies": {
     "assemble": "~0.4.0",
     "grunt": "~0.4.1",
@@ -11,10 +11,9 @@
     "grunt-contrib-imagemin": "~0.1.4",
     "grunt-contrib-jshint": "~0.6.0",
     "grunt-contrib-nodeunit": "~0.2.0",
-    "grunt-contrib-sass": "git+https://github.com/gruntjs/grunt-contrib-sass.git#e85ee70ccb8839867172b57ca1378293291f8037",
+    "grunt-contrib-sass": "~0.4.0",
     "grunt-contrib-uglify": "~0.2.2",
     "grunt-contrib-watch": "~0.4.4",
-    "grunt-contrib-yuidoc": "~0.4.0",
     "grunt-jsonlint": "~1.0.0",
     "grunt-verifylowercase": "~0.2.0",
     "grunt-version": "~0.2.2",
