@@ -73,5 +73,5 @@ You can edit files directly in the browser in Chrome Canary. Canary shows the di
 * Jasmine Testing
 * Sitemap.xml using Assemble
 
-## Issues and Feedback
+### Issues and Feedback
 Found an issue, have an idea? [github.com/andismith/site-boilerplate/issues](https://github.com/andismith/site-boilerplate/issues)

@@ -1,0 +1,16 @@
+      </div>
+      <footer class="site-footer">
+      </footer>
+    </div>
+
+    <!--script data-src="main" src="js/require.js"></script-->
+    {{#dev}}
+    <script src="/js/libs/jquery-1.10.2.js"></script>
+    <script src="/js/script.js"></script>
+    {{/dev}}
+    {{#prod}}
+    <script src="/js/libs/jquery-1.10.2.min.js"></script>
+    <script src="/js/script.min.js"></script>
+    {{/prod}}
+  </body>
+</html>

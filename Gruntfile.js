@@ -20,9 +20,9 @@ module.exports = function (grunt) {
         data: [SRC + 'data/assemble/*.{json,yml}'],
         flatten: true,
         helpers: SRC + 'templates/helpers/**/*.js',
-        layout: 'site.hbs',
+        layout: 'post.hbs',
         layoutdir: SRC + 'templates/layouts',
-        partials: SRC + 'templates/partials/*.hbs',
+        partials: SRC + 'templates/partials/**/*.hbs',
         theme: THEME
       },
       dev: {

@@ -1,0 +1,261 @@
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-  
+   
+   Styles for andismith.com
+
+   Author:      Andi Smith
+   Email:       andi.smith.uk@gmail.com
+   Last Edit:   July 2013
+
+   Contents:
+
+   01. common
+   02. base layout
+   03. main site furniture
+   04. site nav
+   05. hyperlinks
+   06. posts
+   07. meta styles
+   08. sidebar
+   09. pagination
+   10. social styles
+   11. github gist styles
+   12. comments
+
+   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300|Source+Code+Pro:300,500|Droid+Serif:400,700,400italic,700italic);
+
+$max-width: 1024px;
+
+// color palette
+$color-light: #efeddf;
+$color-dark: #333;
+$color-base: #2697f7;
+$color-white: #fff;
+$color-grey: #aaa;
+$color-black: #000;
+
+$page-bg-color: $color-white;
+$page-font: 400 100%/1.6 'Droid Serif', serif;
+$page-color: $color-dark;
+
+// main headers
+$header-font-family: 'Source Sans Pro', sans-serif;
+$header-color: $color-white;
+
+$site-header-bg-color: $color-black;
+$page-header-bg-color: $color-base;
+
+// sub headers
+$sub-header-font-weight: 600;
+$sub-header-color: $color-black;
+$sub-header-hover-color: $color-dark;
+
+$link-color: $color-base;
+$link-hover-color: $color-dark;
+
+$nav-font-family: 'Source Sans Pro', sans-serif;
+$nav-color: $color-white;
+$nav-hover-color: $color-light;
+
+$meta-color: $color-grey;
+
+@mixin set-max-width() {
+  margin: 0 auto;
+  max-width: $max-width;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@mixin horizontal-list() {
+  list-style-type: none;
+  margin: 0;
+  overflow: auto;
+  padding: 0;
+  width: auto;
+
+  li {
+    float: left;
+  }
+}
+
+html, body {
+  background: $page-bg-color;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    color: $page-color;
+    font: $page-font;
+}
+
+::selection {
+    background-color: $color-base;
+    color: #fff;
+}
+
+
+/* headings ------------------------------------ */
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+}
+
+h1 {
+  color: $header-color;
+  font-family: $header-font-family;
+  font-weight: 300;
+  margin: 0;
+
+  a {
+    color: $header-color;
+  }
+}
+
+h2, h3, h4, h5, h6 {
+  color: $sub-header-color;
+  margin: 0;
+  text-align: center;
+}
+
+h2 {
+    font-size: 2em;
+    margin: 10px 0 5px;
+}
+
+h3, h4, h5, h6 {
+    margin: 10px 0;
+}
+
+h3 {
+    font-size: 1.8em;
+}
+
+h4 {
+    font-size: 1.6em;
+}
+
+h5 {
+    font-size: 1.4em;
+}
+
+/* links --------------------------------------- */
+a {
+    color: $link-color;
+    text-decoration: none;
+
+    &:hover {
+        color: $link-hover-color;
+    }
+}
+
+p {
+    font-size: 1.4em;
+    margin: 10px 0;
+    text-align: left;
+
+    a {
+        font-weight: 400;
+    }
+}
+
+
+strong {
+    font-weight: 400;
+}
+
+code {
+    font-family: 'Source Code Pro', 'Courier New', courier, sans-serif;
+}
+
+hr {
+    border: none;
+}
+
+img {
+    //border: solid 1px $line-color;
+    display: block;
+    margin: 0 auto;
+    padding: 2px;
+}
+
+label {
+    display: block;
+
+    &.required:after {
+        color: red;
+        content: '*';
+    }
+}
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
+   02. base layout
+   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+.content-container {
+}
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
+   03. main site furniture
+   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+.site-header {
+  background: $site-header-bg-color;
+
+  .container {
+    @include set-max-width();
+    overflow: auto;
+    padding: 0;
+  }
+
+  h1 {
+    float: left;
+    font-size: 2em;
+  }
+
+  a {
+    color: $nav-color;
+    padding: 4px 20px;
+
+    &:hover {
+      background: $sub-header-hover-color;
+      color: $nav-hover-color;
+    }
+  }
+}
+
+.site-nav {
+  float: right;
+
+  ul {
+    @include horizontal-list();
+    font-family: $nav-font-family;
+    font-weight: 300;
+  }
+
+  a {
+    color: $nav-color;
+    display: inline-block;
+    padding: 12px 20px;
+  }
+}
+
+.page-header {
+  background: $page-header-bg-color;
+
+  h1 {
+    @include set-max-width();
+    font-size: 3em;
+    padding-top: 2em;
+  }
+}
+
+.page-body {
+  @include set-max-width();
+  margin-top: 10px;
+}
+
+.meta {
+  color: $meta-color;
+  text-align: center;
+}

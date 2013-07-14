@@ -1,0 +1,204 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300|Source+Code+Pro:300,500|Droid+Serif:400,700,400italic,700italic);
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-  
+   
+   Styles for andismith.com
+
+   Author:      Andi Smith
+   Email:       andi.smith.uk@gmail.com
+   Last Edit:   July 2013
+
+   Contents:
+
+   01. common
+   02. base layout
+   03. main site furniture
+   04. site nav
+   05. hyperlinks
+   06. posts
+   07. meta styles
+   08. sidebar
+   09. pagination
+   10. social styles
+   11. github gist styles
+   12. comments
+
+   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+html, body {
+  background: white;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #333333;
+  font: 400 100%/1.6 "Droid Serif", serif;
+}
+
+::selection {
+  background-color: #2697f7;
+  color: #fff;
+}
+
+/* headings ------------------------------------ */
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+}
+
+h1 {
+  color: white;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 300;
+  margin: 0;
+}
+h1 a {
+  color: white;
+}
+
+h2, h3, h4, h5, h6 {
+  color: black;
+  margin: 0;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2em;
+  margin: 10px 0 5px;
+}
+
+h3, h4, h5, h6 {
+  margin: 10px 0;
+}
+
+h3 {
+  font-size: 1.8em;
+}
+
+h4 {
+  font-size: 1.6em;
+}
+
+h5 {
+  font-size: 1.4em;
+}
+
+/* links --------------------------------------- */
+a {
+  color: #2697f7;
+  text-decoration: none;
+}
+a:hover {
+  color: #333333;
+}
+
+p {
+  font-size: 1.4em;
+  margin: 10px 0;
+  text-align: left;
+}
+p a {
+  font-weight: 400;
+}
+
+strong {
+  font-weight: 400;
+}
+
+code {
+  font-family: 'Source Code Pro', 'Courier New', courier, sans-serif;
+}
+
+hr {
+  border: none;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  padding: 2px;
+}
+
+label {
+  display: block;
+}
+label.required:after {
+  color: red;
+  content: '*';
+}
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
+   02. base layout
+   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
+   03. main site furniture
+   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+.site-header {
+  background: black;
+}
+.site-header .container {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 20px;
+  padding-right: 20px;
+  overflow: auto;
+  padding: 0;
+}
+.site-header h1 {
+  float: left;
+  font-size: 2em;
+}
+.site-header a {
+  color: white;
+  padding: 4px 20px;
+}
+.site-header a:hover {
+  background: #333333;
+  color: #efeddf;
+}
+
+.site-nav {
+  float: right;
+}
+.site-nav ul {
+  list-style-type: none;
+  margin: 0;
+  overflow: auto;
+  padding: 0;
+  width: auto;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 300;
+}
+.site-nav ul li {
+  float: left;
+}
+.site-nav a {
+  color: white;
+  display: inline-block;
+  padding: 12px 20px;
+}
+
+.page-header {
+  background: #2697f7;
+}
+.page-header h1 {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 3em;
+  padding-top: 2em;
+}
+
+.page-body {
+  margin: 0 auto;
+  max-width: 1024px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+}
+
+.meta {
+  color: #aaaaaa;
+  text-align: center;
+}
+
+/*# sourceMappingURL=andismith.css.map */

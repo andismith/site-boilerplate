@@ -1,4 +1,4 @@
-/* normalize.css v1.1.2 | MIT License | git.io/normalize */
+/*! normalize.css v1.1.2 | MIT License | git.io/normalize */
 
 /* ==========================================================================
    HTML5 display definitions
@@ -555,13 +555,13 @@ body {
 }
 
 body {
-  -webkit-transform: rotate(0deg);
-  -ms-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
-  transform: rotate(0deg);
-  -webkit-transition: height 300ms;
-  -o-transition: height 300ms;
-  transition: height 300ms;
   margin: 0;
   padding: 0;
 }
+
+body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*# sourceMappingURL=common.css.map */

@@ -1,0 +1,15 @@
+<article>
+  <header class="page-header">
+    <h1>{{ title }}</h1>
+  </header>
+
+  <section class="page-body">
+  <p class="meta">{{ posted }}</p>
+    {{#markdown}}
+      {{> body }}
+    {{/markdown}}
+  </section>
+</article>
+
+
+{{>list-pages}}

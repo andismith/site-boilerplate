@@ -1,0 +1,790 @@
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-  
+   
+   Styles for andismith.com
+
+   Author:      Andi Smith
+   Email:       andi.smith.uk@gmail.com
+   Last Edit:   July 2013
+
+   Contents:
+
+   01. common
+   02. base layout
+   03. main site furniture
+   04. site nav
+   05. hyperlinks
+   06. posts
+   07. meta styles
+   08. sidebar
+   09. pagination
+   10. social styles
+   11. github gist styles
+   12. comments
+
+   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+@import "../_vars";
+@import "../_helpers";
+@import "../_icons";
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
+   01. common
+   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+html {
+    background: $heading-color;
+}
+
+body {
+    color: $text-color;
+    font: 300 100%/1.5 'Source Sans Pro', sans-serif;
+    margin: 8px;
+}
+
+::selection {
+    background-color: $heading-color;
+    color: #fff;
+}
+
+/* headings ------------------------------------ */
+h1, h2, h3, h4, h5, h6 {
+    color: $text-color;
+    font-weight: 300;
+    text-shadow: 1px 1px 0 $line-highlight-color;
+}
+
+h1 {
+    font-size: 2.2em;
+    margin: 20px 0 5px;
+
+    a {
+        color: $heading-color;
+
+        &:hover {
+            color: $text-color;
+        }
+    }
+}
+
+h2 {
+    font-size: 2em;
+    margin: 10px 0 5px;
+}
+
+h3, h4, h5, h6 {
+    margin: 10px 0;
+}
+
+h3 {
+    font-size: 1.8em;
+}
+
+h4 {
+    font-size: 1.6em;
+}
+
+h5 {
+    font-size: 1.4em;
+}
+
+/* links --------------------------------------- */
+a {
+    color: $link-color;
+    text-decoration: none;
+
+    &:hover {
+        color: $link-on-color;
+    }
+}
+
+p {
+    font-size: 1em;
+    margin: 10px 0;
+    text-align: left;
+
+    a {
+        font-weight: 400;
+    }
+}
+
+
+strong {
+    font-weight: 400;
+}
+
+code {
+    font-family: 'Source Code Pro', 'Courier New', courier, sans-serif;
+}
+
+hr {
+    border: none;
+    @include separator(false, true, true);
+}
+
+img {
+    border: solid 1px $line-color;
+    display: block;
+    margin: 0 auto;
+    padding: 2px;
+}
+
+label {
+    display: block;
+
+    &.required:after {
+        color: red;
+        content: '*';
+    }
+}
+
+input[type=text],
+input[type=email],
+textarea {
+    background: $background;
+    border: 1px solid $heading-color;
+    box-shadow: inset 0 1px 0 $line-highlight-color, 0 1px 0 $line-highlight-color;
+    color: $text-color;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 5px;
+    width: 80%;
+}
+
+table {
+    border: 1px solid $link-on-color;
+    border-collapse: collapse;
+    margin: 20px auto;
+
+    th, td {
+        padding: 0 5px;
+        vertical-align: top;
+    }
+
+    th {
+        background: $line-color;
+    }
+
+    tbody tr:nth-child(2n) td {
+        background: $line-highlight-color;
+    }
+}
+
+@media screen and (min-width: 600px) {
+
+    p {
+        font-size: 1.1em;
+    }
+
+}
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
+   02. base layout
+   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+.site-wrapper {
+    background: $backgroundRgba;
+    @include grid-row();
+    max-width: 1024px;
+    padding: 20px;
+}
+
+@media screen and (min-width: 800px) {
+
+    .site-content {
+        @include grid-cols(17);
+
+        &.fill {
+            @include grid-cols(24, true);
+            float: none;
+            width: auto;
+        }
+
+    }
+
+    .site-sidebar {
+        @include grid-cols(7, true);
+        @include transition(opacity 100ms ease-in-out);
+    }
+}
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
+   03. main site furniture
+   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+.site-header {
+    @include separator(false, true, true);
+    @include grid-row();
+    padding-bottom: 10px;
+}
+
+.site-logo {
+    font-size: 2.5em;
+    line-height: 1.2;
+    margin-top: 0;
+}
+
+.site-categories {
+    @include horizontal-list;
+    margin-top: 12px;
+
+    li {
+        font-size: 1.1em;
+    }
+
+    a {
+        background: $line-color;
+        border: 1px solid $line-color;
+        border-radius: 8px;
+        color: $link-on-color;
+        display: block;
+        padding: 2px 5px;
+
+        &:hover {
+            background: $line-highlight-color;
+            color: $link-color;
+        }
+    }
+}
+
+.content-wrapper {
+    @include grid-row();
+}
+
+.site-sidebar {
+    margin-top: 16px;
+
+    h1 {
+        font-size: 1.6em;
+    }
+}
+
+.site-footer {
+    margin: 10px 20px;
+
+    p, a {
+        color: $background;
+    }
+
+    // TODO: move
+    .icon-bug:before {
+        padding-right: 10px;
+    }
+}
+
+@media screen and (min-width: 600px) {
+
+    .site-logo {
+        float: left;
+        font-size: 2.9em;
+    }
+
+    .site-categories {
+        float: right;
+        
+        li {
+            font-size: 1.1em;
+
+            a {
+                padding: 2px 10px;
+            }
+        }
+    }
+}
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
+   04. site nav
+   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+.site-nav {
+    position: relative;
+
+    ul {
+        @include horizontal-list;
+        @include separator(false, true, false);
+    }
+
+    li {
+        font-size: 1.2em;
+
+        &.top {
+            float: right;
+            opacity: 0;
+            @include transition(opacity 500ms 200ms);
+
+            a, a span {
+                display: none;
+            }
+        }
+    }
+
+    &.fixed {
+
+        ul {
+            background: $background;
+            //TODO: fix
+            @include box-shadow("0 1px 0 0 $line-highlight-color, 0 10px 5px $background");
+            position: fixed;
+            top: 0; 
+        }
+
+        li.top {
+            opacity: 1;
+
+            a {
+                display: block;
+
+                &:before {
+                    color: $meta-icon-color;
+                    @include icon("\e007");
+                }
+
+                &:hover:before {
+                    color: $link-on-color;
+                }
+            }
+        }
+    }
+
+    a {
+        color: $link-on-color;
+        display: block;
+        padding: 10px 5px 10px 0;
+
+        &.selected,
+        &:hover {
+            color: $link-color;
+        }
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .site-nav li {
+        font-size: 1.4em;
+
+        a {
+            padding-right: 10px;
+        }
+    }
+}
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
+   05. hyperlinks
+   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+/* as call to action (with arrow) */
+.cta:before {
+    @include icon("\e005");
+    font-size: 0.75em;
+    padding-right: 4px;
+}
+
+/*  button (for forms) */
+.button {
+    background: $heading-color;
+    border: 1px solid $line-highlight-color;
+    color: $line-color;
+    padding: 5px 20px;
+
+    &:hover {
+        border: 1px solid $text-color;
+        color: $text-color;
+    }
+}
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
+   06. posts
+   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+.post {
+    @include separator(false, true, true, false);
+
+    p {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    img {
+        width: inherit;
+        max-width: 100%;
+    }
+
+    hr {
+        @include separator(false, true, true, false);
+    }
+}
+
+.post-footer {
+    @include grid-row();
+    @include separator(true, true, true, false);
+}
+
+.filter {
+    @include separator(false, true, true);
+    @include grid-row();
+    list-style-type: none;
+    padding: 0 0 20px;
+
+    li {
+        @include grid-cols(12);
+    }
+
+    .selected:before {
+        color: $link-on-color;
+    }
+}
+
+@media screen and (min-width: 600px) {
+
+    .filter li {
+        @include grid-cols(6);
+
+        &:nth-child(4n) {
+            @include grid-cols(6, true);
+        }
+    }
+}
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
+   07. meta styles
+   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+.meta {
+    color: $meta-text-color;
+    margin: 0 10px 10px 0;
+
+    &:before {
+        color: $meta-icon-color;
+        @include icon();
+        padding-right: 5px;
+    }
+}
+
+.meta-date:before {
+    content: "\e01a";
+}
+.meta-location:before {
+    content: "\e01d";
+}
+.type-writing:before {
+    content: "\e000";
+}
+.type-speaking:before {
+    content: "\e001";
+}
+.type-open-source:before {
+    content: "\e002";
+}
+.type-personal-site:before {
+    content: "\e01b";
+}
+.type-client-work:before {
+    content: "\e004";
+}
+.type-book:before {
+    content: "\e003";
+}
+.type-interview:before {
+    content: "\e023";
+}
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
+   08. hero
+   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+.hero {
+    ul {
+        @include grid-row();
+        list-style-type: none;
+        margin: 20px 0;
+        padding: 0;
+    }
+
+    li {
+        @include grid-cols(12);
+        @include separator(false, true, false, false);
+
+        &:last-child {
+            @include grid-cols(12, true);
+        }
+    }
+
+    h1, p {
+        text-align: center;
+        text-shadow: none;
+    }
+
+    h1 {
+        margin: 0 10px 10px;
+        @include separator(false, true, false, false);
+
+    }
+
+    div, a {
+        border: solid 1px $line-light-color;
+        @include border-radius(4px);
+        display: block;
+        padding: 10px;
+    }
+
+    a:hover {
+        border-color: $hover-border-highlight-color;
+        @include box-shadow(inset 0 0 250px 0 $hover-highlight-color);
+    }
+}
+
+.config-1 {
+    background: $line-light-color;
+    border-color: $line-dark-color;
+}
+
+.config-2 {
+    background: $heading-color;
+    
+    h1, p, a {
+        color: $background;
+    }
+}
+
+.config-3 {
+    background: $line-dark-color;
+    border-color: $line-dark-color;
+}
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
+   08. sidebar
+   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+.site-sidebar section {
+    @include separator(false, true, true);
+}
+
+.profile {
+    border: solid 1px $heading-color;
+    display: block;
+    margin: 0 auto 10px;
+    max-width: 120px;
+    padding: 2px;
+    width: 50%;
+}
+
+.list {
+    padding-left: 20px;
+}
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
+   09. pagination
+   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+.pages {
+    overflow: auto;
+    margin: 20px auto;
+    text-align: center;
+    width: auto;
+
+    li {
+        display: inline-block;
+    }
+
+    a,
+    span {
+        display: block;
+        padding: 2px 5px;
+    }
+
+    .current {
+        border-radius: 20px;
+        background: $line-color;
+        display: block;
+    }
+
+    .previous,
+    .next {
+        width: 80px;
+    }
+}
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
+   10. social styles
+   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+.social {
+    list-style-type: none;
+    padding: 0;
+
+    p {
+        margin-bottom: 10px;
+    }
+
+    a {
+        display: block;
+
+        &:before {
+            font-size: 1.3em;
+            padding-right: 10px;
+        }
+    }
+}
+
+.icons-only {
+    float: right;
+    @include grid-row();
+    margin: 0;
+
+    li {
+        float: left;    
+    }
+
+    span {
+        display: none;
+    }
+}
+
+.social a:before {
+    text-shadow: 1px 1px 0 #eee;
+}
+.rss a:before {
+    color: #ff6b17;
+}
+.linked-in a:before {
+    color: #4284df;
+}
+.google-plus a:before {
+    color: #c32528;
+}
+.lanyrd a:before {
+    color: #3c80ca;
+}
+.facebook a:before {
+    color: #3b5998;
+}
+.github a:before {
+    color: #333;
+}
+.instagram a:before {
+    color: #ac5524;
+}
+.reddit a:before {
+    color: #666;
+}
+.stumble-upon a:before {
+    color: #ea3135;
+}
+.contact a:before {
+    color: #aaa;
+}
+.social a:hover:before {
+    color: $link-on-color;
+}
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
+   11. github gist styles
+   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+.gist {
+    border: 1px solid #ddd!important;
+    margin: 20px 0 10px;
+    max-width: 700px;
+
+    table {
+        border: none;
+        margin: 0;
+        width: 100%;
+    }
+
+    .gist-file {
+        border: none!important;
+        margin: 0!important;
+    }
+
+    .gist-data {
+        font-family: 'Source Code Pro', 'Courier New', courier, sans-serif!important;
+    }
+
+    .line-numbers {
+        background: $line-color!important;
+        font-size: 0.8em!important;
+        width: 25px!important;
+    }
+
+    .line-data {
+        background: none!important;
+        font-size: 0.8em!important;
+    }
+
+    .gist-meta {
+        background: $line-highlight-color!important;
+        font-size: 0.5em!important;
+
+        a {
+            color: $link-color!important;
+
+            &:hover {
+                color: $link-on-color!important;
+            }
+        }
+    }
+}
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
+   08. forms
+   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+
+
+
+/* -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- 
+   12. comments
+   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+
+.comment {
+
+    overflow: auto;
+    margin-bottom: 5px;
+    padding: 5px;
+
+    &.author {
+        border: solid 1px $heading-color;
+        padding: 4px;
+    }
+
+    .avatar {
+        float: left;
+        height: 80px;
+        width: 80px;
+    }
+
+    .comment-body {
+        margin-left: 100px;
+    }
+
+    .comment-name {
+        margin: 0;
+    }
+
+    &:nth-child(2n) {
+        background: $line-highlight-color;
+    }
+}
+
+.comments-reply {
+    font-size: 1.1em;
+}
+
+.comments-info {
+    color: $link-on-color;
+}
+
+.comments-box {
+    height: 120px;
+    margin: 10px auto;
+}
+
+.comments {
+    text-align: right;
+}
+
+.tags {
+    float: left;
+}
+
+.share .label {
+    font-weight: 400;
+    padding-right: 10px;
+}

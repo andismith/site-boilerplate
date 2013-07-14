@@ -1,5 +1,3 @@
-//@sourceMappingURL: common.css.map
-
 @import "libs/_normalize-1.1.2";
 @import "_vars";
 @import "_helpers";
@@ -10,8 +8,10 @@ body {
 }
 
 body {
-    transform: rotate(0deg);
-    transition: height 300ms;
     margin: 0;
     padding: 0;
+
+    * {
+        box-sizing: border-box;
+    }
 }

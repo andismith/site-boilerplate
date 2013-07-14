@@ -1,0 +1,9 @@
+<ul>
+{{ log pages }}
+{{ log page.list }}
+{{#each pages}}
+{{#found this.dest page.list}}
+  <li>{{this.data.title}}</li>
+{{/found}}
+{{/each}}
+</ul>
