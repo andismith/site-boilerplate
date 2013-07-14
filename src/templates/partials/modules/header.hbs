@@ -5,7 +5,7 @@
       <ul>
       {{#withSort pages "data.primary" }}
         {{#if data.primary}}
-        <li><a href="{{ relative this.dest ../page.dest }}">{{ capitalizeFirst data.title }}</a></li>
+        <li><a href="{{ relative ../../page.dest dest }}">{{ capitalizeFirst data.title }}</a></li>
         {{/if}}
       {{/withSort}}
       </ul>
